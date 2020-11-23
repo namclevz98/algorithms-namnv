@@ -10,18 +10,18 @@ namespace algorithms_nvnam
     {
         public static void DisplayProduct(Product product)
         {
-            Console.WriteLine("Product {" + product.name + ", " + product.price + ", " + product.quality + ", " + product.categoryId  + "}");
+            Console.WriteLine("Product {" + product.name + ", " + product.price + ", " + product.quality + ", " + product.categoryId + "}");
         }
-        public static Product FindProduct(List<Product> products,string name)
+        public static Product FindProduct(List<Product> products, string name)
         {
             Product product = new Product();
-            for(int i = 0; i < products.Count(); i++)
+            for (int i = 0; i < products.Count(); i++)
             {
                 if (products[i].name == name)
                 {
                     product = products[i];
-                }                    
-            }    
+                }
+            }
             return product;
         }
         public static List<Product> FindProductByCategory(List<Product> products, int id)
@@ -37,41 +37,104 @@ namespace algorithms_nvnam
             }
             return results;
         }
+        public static List<string> FindProductByPrice(List<Product> products, int price)
+        {
+            List<string> results = new List<string>();
 
-        public static void SortByPrice(List<Product> products)
+            for (int i = 0; i < products.Count(); i++)
+            {
+                if (products[i].price < price)
+                {
+                    results.Add(products[i].name);
+                }
+            }
+            return results;
+        }
+
+        public static List<Product> SortByPrice(List<Product> products)
         {
             Product temp;
             int i, j;
-            for ( i = 0; i < products.Count() - 1; i++)
-                for ( j = 0; j < products.Count() - 1 - i; j++)
+            for (i = 0; i < products.Count() - 1; i++)
+                for (j = 0; j < products.Count() - 1 - i; j++)
                     if (products[j].price > products[j + 1].price)
                     {
                         temp = products[j];
                         products[j] = products[j + 1];
                         products[j + 1] = temp;
                     }
-            Console.WriteLine("(BubbleSort) SortByPrice:");
-            foreach (var product in products)
-                DisplayProduct(product);
+            return products;
         }
-        public static List<Product> findProductByPrice(List<Product> products, int price)
-        {
-            List<Product> results = new List<Product>();
 
-            for (int i = 0; i < products.Count(); i++)
+        public static List<Product> SortByName(List<Product> products)
+        {
+            Product temp;
+            int i, holePosition;
+
+            for (i = 1; i < products.Count(); i++)
             {
-                if (products[i].price < price)
+                temp = products[i];
+                holePosition = i;
+                while (holePosition > 0 && products[holePosition - 1].name.Length > temp.name.Length)
                 {
-                    results.Add(products[i]);
+                    products[holePosition] = products[holePosition - 1];
+                    holePosition--;
                 }
+                if (holePosition != i)
+                    products[holePosition] = temp;
             }
-            return results;
+            return products;
+        }
+        //public static List<Product> MapProductByCategory(List<Product> products, List<Category> categories)
+        //{
+
+        //}
+        //public static List<Product> SortByCategory(List<Product> products)
+        //{
+        //    Product temp;
+        //    int i, j, minPosition;
+        //    for (i = 0; i < products.Count() - 1; i++)
+        //    {
+        //        minPosition = i;
+        //        for (j = i + 1; j < products.Count(); i++)
+        //        {
+        //            if (products[j].Category.name > products[minPosition].Category.name) CompareStrings(strFirst, strFirst)
+        //                minPosition = j;
+        //        }
+        //        if (minPosition != 1)
+        //        {
+        //            temp = products[minPosition];
+        //            products[minPosition] = products[i];
+        //            products[i] = temp;
+        //        }
+        //    }
+        //    return products;
+        //}
+        public static Product MinByPrice(List<Product> products)
+        {
+            Product product = products[0];
+            foreach (var pr in products)
+                if (product.price > pr.price)
+                {
+                    product = pr;
+                }
+            return product;
+        }
+        public static Product MaxByPrice(List<Product> products)
+        {
+            Product product = products[0];
+            foreach (var pr in products)
+                if (product.price < pr.price)
+                {
+                    product = pr;
+                }
+            return product;
         }
         static void Main(string[] args)
         {
             string searchString = "CPU";
             List<Product> products = new List<Product>();
-            products.Add(new Product() { name = "CPU", price = 750, quality = 10, categoryId = 1});
+            products.Add(new Product() { name = "CPU", price = 750, quality = 10, categoryId = 1 });
             products.Add(new Product() { name = "RAM", price = 50, quality = 2, categoryId = 2 });
             products.Add(new Product() { name = "HDD", price = 70, quality = 1, categoryId = 2 });
             products.Add(new Product() { name = "Main", price = 400, quality = 3, categoryId = 1 });
@@ -109,30 +172,30 @@ namespace algorithms_nvnam
             foreach (var pr in productsByCategoryID)
                 DisplayProduct(pr);
 
-            List<Product> productsByPrice = findProductByPrice(products, 100);
+            List<string> productsByPrice = FindProductByPrice(products, 100);
             Console.WriteLine("Products's list with lower price or equal to 100:");
             foreach (var pr in productsByPrice)
+                Console.Write(pr + ", ");
+
+            List<Product> productsSortByPrice = SortByPrice(products);
+            Console.WriteLine("\n(BubbleSort) SortByPrice:");
+            foreach (var pr in productsSortByPrice)
                 DisplayProduct(pr);
 
-            SortByPrice(products);
-            
-            int[] arr = { 2, 1, 3, 5, 4, 8, 9, 6, 7 };
-            int i, j, temp;
-            foreach (var a in arr)
-                Console.Write(a + " ");
-            Array.Sort(arr);
-            for (i = 0; i < arr.Length - 1; i++)
-                for (j = 0; j< arr.Length - 1 - i; j++)
-                {
-                    if (arr[j] > arr[j+1])
-                    {
-                        temp = arr[j];
-                        arr[j] = arr[j+1];
-                        arr[j+1] = temp;
-                    }    
-                }
-            foreach (var a in arr)
-                Console.Write(a + " ");
+            List<Product> productsSortByName = SortByName(products);
+            Console.WriteLine("(InsertionSort) SortByName:");
+            foreach (var pr in productsSortByName)
+                DisplayProduct(pr);
+
+            var ProductListSort = categories.OrderBy(P => P.name);
+            foreach (var pr in ProductListSort)
+                Console.WriteLine("{0}, {1}", pr.id, pr.name);
+
+            Console.WriteLine("Product with minimum price:");
+            DisplayProduct(MinByPrice(products));
+
+            Console.WriteLine("Product with maximum price:");
+            DisplayProduct(MaxByPrice(products));
             Console.ReadKey();
         }
     }

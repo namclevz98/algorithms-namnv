@@ -48,6 +48,7 @@
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Sort.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
