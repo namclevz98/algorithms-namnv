@@ -1,0 +1,7 @@
+C:\Users\NvN\source\repos\algorithms-nvnam\algorithms-nvnam\bin\Debug\algorithms-nvnam.exe.config
+C:\Users\NvN\source\repos\algorithms-nvnam\algorithms-nvnam\bin\Debug\algorithms-nvnam.exe
+C:\Users\NvN\source\repos\algorithms-nvnam\algorithms-nvnam\bin\Debug\algorithms-nvnam.pdb
+C:\Users\NvN\source\repos\algorithms-nvnam\algorithms-nvnam\obj\Debug\algorithms-nvnam.csprojAssemblyReference.cache
+C:\Users\NvN\source\repos\algorithms-nvnam\algorithms-nvnam\obj\Debug\algorithms-nvnam.csproj.CoreCompileInputs.cache
+C:\Users\NvN\source\repos\algorithms-nvnam\algorithms-nvnam\obj\Debug\algorithms-nvnam.exe
+C:\Users\NvN\source\repos\algorithms-nvnam\algorithms-nvnam\obj\Debug\algorithms-nvnam.pdb
