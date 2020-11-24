@@ -16,21 +16,11 @@ namespace algorithms_nvnam
                           join category in categories on product.categoryId equals category.id
                           orderby category.name ascending
                           select new { name = product.name, price = product.price, quality = product.quality, categoryId = category.id, categoryName = category.name };
-            //foreach (var product in results)
-            //{
-            //    Console.WriteLine(product.name + " " + product.categoryName);
-            //}
             List<Product> mapedProducts = new List<Product>();
             foreach (var product in results)
             {
                 mapedProducts.Add(new Product() { name = product.name, price = product.price, quality = product.quality, categoryId = product.categoryId });
             }
-            //return mapedProducts;
-
-            // tìm kiếm theo từng id
-            // add product
-            // sắp xếp
-            
             List<Product> productByCategory = new List<Product>();
             foreach (var category in categories)
             {
@@ -44,8 +34,6 @@ namespace algorithms_nvnam
                     }
                 }
             }
-            //return productByCategory;
-
         }
     }
 }

@@ -68,11 +68,6 @@ namespace algorithms_nvnam
             Console.WriteLine("(InsertionSort) SortByName:");
             foreach (var product in productsSortByName)
                 DisplayProduct(product);
-
-            //var ProductListSort = categories.OrderBy(P => P.name);
-            //foreach (var pr in ProductListSort)
-            //    Console.WriteLine("{0}, {1}", pr.id, pr.name);
-
             List<Product> productsSortByCategory = Bai13_sortByCategoryName.SortByCategoryName(products, categories);
             Console.WriteLine("(SelectionSort) SortByCategory:");
             foreach (var product in productsSortByCategory)
@@ -80,10 +75,6 @@ namespace algorithms_nvnam
 
             Console.WriteLine("List Procduct mapped by Category");
             Bai14_MapProductByCategory.MapProductByCategory(products, categories);
-            //var productsByCategory = Bai14_MapProductByCategory.MapProductByCategory(products, categories);
-            //Console.WriteLine("List Procduct mapped by Category");
-            //foreach (var product in productsByCategory)
-            //    DisplayProduct(product);
 
             Console.WriteLine("Product with minimum price:");
             DisplayProduct(Bai15_minByPrice.MinByPrice(products));
