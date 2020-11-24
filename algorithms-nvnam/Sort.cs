@@ -68,27 +68,6 @@ namespace algorithms_nvnam
             foreach (var a in arr)
                 Console.Write(a + " ");
             Console.ReadKey();
-
-            public static Product MinByPrice(List<Product> products)
-            {
-                Product product = products[0];
-                foreach (var pr in products)
-                    if (product.price > pr.price)
-                    {
-                        product = pr;
-                    }
-                return product;
-            }
-            public static Product MaxByPrice(List<Product> products)
-            {
-                Product product = products[0];
-                foreach (var pr in products)
-                    if (product.price < pr.price)
-                    {
-                        product = pr;
-                    }
-                return product;
-            }
         }
     }
 }

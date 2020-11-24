@@ -43,6 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bai11-sortByPrice.cs" />
+    <Compile Include="Bai12-sortByName.cs" />
+    <Compile Include="Bai13-sortByCategoryName.cs" />
+    <Compile Include="Bai14-mapProductByCategory.cs" />
+    <Compile Include="Bai15-minByPrice.cs" />
+    <Compile Include="Bai04-findProduct.cs" />
+    <Compile Include="Bai05-findProductByCategory.cs" />
+    <Compile Include="Bai06-findProductByPrice.cs" />
+    <Compile Include="Bai16-maxByPrice.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Product.cs" />
