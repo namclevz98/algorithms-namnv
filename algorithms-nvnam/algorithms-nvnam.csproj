@@ -52,12 +52,15 @@
     <Compile Include="Bai05-findProductByCategory.cs" />
     <Compile Include="Bai06-findProductByPrice.cs" />
     <Compile Include="Bai16-maxByPrice.cs" />
-    <Compile Include="Category.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="Bai21-calSalary.cs" />
+    <Compile Include="Bai22-CalMonth.cs" />
+    <Compile Include="Bai23-PrintMenu.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Menu.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="Sort.cs" />
+    <None Include="Sorting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

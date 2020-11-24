@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 namespace algorithms_nvnam
 {
     class Program
-    {
+    {        
         public static void DisplayProduct(Product product)
         {
             Console.WriteLine("Product {" + product.name + ", " + product.price + ", " + product.quality + ", " + product.categoryId + "}");
         }
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.Unicode;
+            Console.InputEncoding = Encoding.Unicode;
             string searchString = "CPU";
             List<Product> products = new List<Product>();
             products.Add(new Product() { name = "CPU", price = 750, quality = 10, categoryId = 1 });
@@ -46,43 +48,65 @@ namespace algorithms_nvnam
             foreach (var product in products)
                 DisplayProduct(product);
 
+            Console.WriteLine("-------------------------------------------");
             Console.WriteLine("Product with name = " + searchString + ":");
             DisplayProduct(Bai4_findProduct.FindProduct(products, searchString));
 
+            Console.WriteLine("-------------------------------------------");
             List<Product> productsByCategoryID = Bai5_findProductByCategory.FindProductByCategory(products, 2);
+
+            Console.WriteLine("-------------------------------------------");
             Console.WriteLine("Products's list with CategoryID = 2:");
             foreach (var product in productsByCategoryID)
                 DisplayProduct(product);
 
+            Console.WriteLine("-------------------------------------------");
             List<string> productsByPrice = Bai6_findProductByPrice.FindProductByPrice(products, 100);
-            Console.WriteLine("Products's list with lower price or equal to 100:");
+            Console.WriteLine("Products's name with lower price or equal to 100:");
             foreach (var product in productsByPrice)
-                Console.Write(product + ", ");
+                Console.WriteLine(product);
 
+            Console.WriteLine("-------------------------------------------");
             List<Product> productsSortByPrice = Bai11_sortByPrice.SortByPrice(products);
-            Console.WriteLine("\n(BubbleSort) SortByPrice:");
+            Console.WriteLine("(BubbleSort) SortByPrice:");
             foreach (var product in productsSortByPrice)
                 DisplayProduct(product);
 
+            Console.WriteLine("-------------------------------------------");
             List<Product> productsSortByName = Bai12_sortByName.SortByName(products);
             Console.WriteLine("(InsertionSort) SortByName:");
             foreach (var product in productsSortByName)
                 DisplayProduct(product);
+
+            Console.WriteLine("-------------------------------------------");
             List<Product> productsSortByCategory = Bai13_sortByCategoryName.SortByCategoryName(products, categories);
             Console.WriteLine("(SelectionSort) SortByCategory:");
             foreach (var product in productsSortByCategory)
                 DisplayProduct(product);
 
+            Console.WriteLine("-------------------------------------------");
             Console.WriteLine("List Procduct mapped by Category");
             Bai14_MapProductByCategory.MapProductByCategory(products, categories);
 
+            Console.WriteLine("-------------------------------------------");
             Console.WriteLine("Product with minimum price:");
             DisplayProduct(Bai15_minByPrice.MinByPrice(products));
 
+            Console.WriteLine("-------------------------------------------");
             Console.WriteLine("Product with maximum price:");
             DisplayProduct(Bai16_maxByPrice.MaxByPrice(products));
+
+            Console.WriteLine(Bai21_calSalary.CalSalary(2000, 7));
+            Console.WriteLine(Bai21_calSalary.CalSalary_recurse(2000, 7));
+
+            Console.WriteLine(Bai22_CalMonth.CalMonth(1000, 10));
+            //Console.WriteLine(Bai22_CalMonth.CalMonth_recurse(1000, 10));
+
+            Bai23_PrintMenu.PrintMenu(menus);
             Console.ReadKey();
 
+
         }
+
     }
 }

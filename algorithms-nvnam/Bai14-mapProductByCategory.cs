@@ -12,28 +12,18 @@ namespace algorithms_nvnam
         // show list of products grouped by Category
         public static void MapProductByCategory(List<Product> products, List<Category> categories)
         {
-            var results = from product in products
-                          join category in categories on product.categoryId equals category.id
-                          orderby category.name ascending
-                          select new { name = product.name, price = product.price, quality = product.quality, categoryId = category.id, categoryName = category.name };
-            List<Product> mapedProducts = new List<Product>();
-            foreach (var product in results)
-            {
-                mapedProducts.Add(new Product() { name = product.name, price = product.price, quality = product.quality, categoryId = product.categoryId });
-            }
-            List<Product> productByCategory = new List<Product>();
+            List<Product> productSorted = new List<Product>();
             foreach (var category in categories)
             {
                 Console.WriteLine(category.name + ":");
                 for (int i = 0; i < products.Count(); i++)
-                {
                     if (products[i].categoryId == category.id)
                     {
-                        productByCategory.Add(products[i]);
+                        productSorted.Add(products[i]);
                         Console.WriteLine("Product {" + products[i].name + ", " + products[i].price + ", " + products[i].quality + ", " + products[i].categoryId + " - " + category.name + "}");
-                    }
-                }
+                    }    
             }
+            //return productSorted;
         }
     }
 }
