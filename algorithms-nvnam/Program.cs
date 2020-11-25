@@ -86,7 +86,10 @@ namespace algorithms_nvnam
 
             Console.WriteLine("-------------------------------------------");
             Console.WriteLine("List Procduct mapped by Category");
-            Bai14_MapProductByCategory.MapProductByCategory(products, categories);
+            List<Product> mapProductByCategory = Bai14_MapProductByCategory.MapProductByCategory(products, categories);
+            foreach (var product in mapProductByCategory)
+                Console.WriteLine("Product {" + product.name + ", " + product.price + ", " + product.quality + ", " + product.categoryId + ", " + product.categoryName + "}");
+
 
             Console.WriteLine("-------------------------------------------");
             Console.WriteLine("Product with minimum price:");
@@ -96,13 +99,21 @@ namespace algorithms_nvnam
             Console.WriteLine("Product with maximum price:");
             DisplayProduct(Bai16_maxByPrice.MaxByPrice(products));
 
-            Console.WriteLine(Bai21_calSalary.CalSalary(2000, 7));
-            Console.WriteLine(Bai21_calSalary.CalSalary_recurse(2000, 7));
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("CalSalary:");
+            Console.WriteLine(Bai21_calSalary.CalSalary(2000, 1));
+            Console.WriteLine("CalSalaryRecurse:");
+            Console.WriteLine(Bai21_calSalary.CalSalaryRecurse(2000, 1));
 
-            Console.WriteLine(Bai22_CalMonth.CalMonth(1000, 10));
-            //Console.WriteLine(Bai22_CalMonth.CalMonth_recurse(1000, 10));
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("CalMonth:");
+            Console.WriteLine(Bai22_calMonth.CalMonth(1000, 10));
+            Console.WriteLine("CalMonthRecurse:");
+            Console.WriteLine(Bai22_calMonth.CalMonthRecurse(1000, 10));
 
-            Bai23_PrintMenu.PrintMenu(menus);
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("Menu:");
+            Bai23_printMenu.PrintMenu(menus);
             Console.ReadKey();
 
 

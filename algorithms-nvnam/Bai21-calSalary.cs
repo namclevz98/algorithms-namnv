@@ -20,13 +20,16 @@ namespace algorithms_nvnam
             }    
             return salary;
         }
-        public static double CalSalary_recurse(double salary, int n)
+        public static double CalSalaryRecurse(double salary, int n)
         {
             if( n == 0 )
             {
                 return salary;
-            }    
-            return CalSalary_recurse(salary + salary * 0.1, n - 1);
+            }
+            return CalSalaryRecurse(salary, n - 1) + CalSalaryRecurse(salary, n - 1) * 0.1;
+            // lương  = lương năm trước + 10% lương năm trước
         }
     }
 }
+
+

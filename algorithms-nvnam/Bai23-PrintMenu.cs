@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace algorithms_nvnam
 {
-    class Bai23_PrintMenu
+    class Bai23_printMenu
     {
         public static void PrintMenu(List<Menu> menus)
         {
@@ -20,8 +20,12 @@ namespace algorithms_nvnam
                         {
                             Console.WriteLine("--" + menus[j].title);
                             for (int k = 0; k < menus.Count(); k++)
+                            {
                                 if (menus[k].parent_id == menus[j].id)
+                                {
                                     Console.WriteLine("----" + menus[k].title);
+                                }
+                            }
                         }
                     }
                 }

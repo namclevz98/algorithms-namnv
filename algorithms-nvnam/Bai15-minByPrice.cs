@@ -13,10 +13,12 @@ namespace algorithms_nvnam
         {
             Product productMin = products[0];
             foreach (var product in products)
+            {
                 if (productMin.price > product.price)
                 {
                     productMin = product;
                 }
+            }                    
             return productMin;
         }
     }

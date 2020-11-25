@@ -53,8 +53,8 @@
     <Compile Include="Bai06-findProductByPrice.cs" />
     <Compile Include="Bai16-maxByPrice.cs" />
     <Compile Include="Bai21-calSalary.cs" />
-    <Compile Include="Bai22-CalMonth.cs" />
-    <Compile Include="Bai23-PrintMenu.cs" />
+    <Compile Include="Bai22-calMonth.cs" />
+    <Compile Include="Bai23-printMenu.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Menu.cs" />
     <Compile Include="Model\Product.cs" />

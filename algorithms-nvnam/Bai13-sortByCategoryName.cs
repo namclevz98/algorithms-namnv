@@ -11,32 +11,38 @@ namespace algorithms_nvnam
         // show list of products sorted by category's name
         public static List<Product> SortByCategoryName(List<Product> products, List<Category> categories)
         {
-            Category temp;
+            Product temp;
             int i, j, minPosition;
-            for (i = 0; i < categories.Count() - 1; i++)
+            for (i = 0; i < products.Count() - 1; i++)
             {
                 minPosition = i;
-                for (j = i + 1; j < categories.Count(); j++)
+                for (j = i + 1; j < products.Count(); j++)
                 {
-                    if (String.Compare(categories[j].name.ToString(), categories[minPosition].name.ToString()) < 0)
+                    if (String.Compare(GetCategoryName(products[j],categories), GetCategoryName(products[minPosition], categories)) < 0)
                         minPosition = j;
                 }
                 if (minPosition != i)
                 {
-                    temp = categories[minPosition];
-                    categories[minPosition] = categories[i];
-                    categories[i] = temp;
+                    temp = products[minPosition];
+                    products[minPosition] = products[i];
+                    products[i] = temp;
                 }
             }
-            List<Product> productSorted = new List<Product>();
-            foreach ( var category in categories)
+            return products;
+        }
+        static string GetCategoryName(Product product, List<Category> categories)
+        {
+            string categoryName = "";
+            for(int i = 0; i < categories.Count(); i++)
             {
-                for (i = 0; i < products.Count(); i++)
-                    if (products[i].categoryId == category.id)
-                        productSorted.Add(products[i]);                        
-            }    
-            return productSorted;
-
+                if (product.categoryId == categories[i].id)
+                {
+                    categoryName = categories[i].name;
+                    product.categoryName = categories[i].name;
+                    break;
+                }
+            }
+            return categoryName;
         }
     }
 }

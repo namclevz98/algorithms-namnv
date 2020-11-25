@@ -12,6 +12,8 @@ namespace algorithms_nvnam
         public int price { get; set; }
         public int quality { get; set; }
         public int categoryId { get; set; }
+
+        public string categoryName { get; set; }
         public virtual Category Category { get; set; }
     }
 }

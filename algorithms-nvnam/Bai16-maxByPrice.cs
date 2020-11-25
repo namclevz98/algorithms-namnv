@@ -13,10 +13,12 @@ namespace algorithms_nvnam
         {
             Product productMax = products[0];
             foreach (var product in products)
+            {
                 if (productMax.price < product.price)
                 {
                     productMax = product;
                 }
+            }                    
             return productMax;
         }
     }
